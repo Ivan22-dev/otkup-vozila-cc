@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Container, Row, Col } from "reactstrap";
 
-class FooterLinks extends Component {
-    render() {
-        return (
-            <React.Fragment>
+const FooterLinks = () => {
+    return (
+        <React.Fragment>
             <div className="footer-alt pt-3 pb-3">
                 <Container>
                     <Row>
@@ -16,9 +15,8 @@ class FooterLinks extends Component {
                     </Row>
                 </Container>
             </div>
-            </React.Fragment>
-        );
-    }
-}
+        </React.Fragment>
+    );
+};
 
 export default FooterLinks;

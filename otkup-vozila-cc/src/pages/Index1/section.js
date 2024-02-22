@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from "react-router-dom";
 import {
     Container,
@@ -9,141 +9,83 @@ import {
     CarouselControl
 } from "reactstrap";
 
-//Importing Modal
+// Importing Modal
 import ModalSection from '../../components/common/ModalSection';
 
-//Import Images
+// Import Images
 import bg1 from "../../assets/images/bg-1.jpg";
 import bg2 from "../../assets/images/bg-2.jpg";
 import bg3 from "../../assets/images/bg-3.jpg";
 
+const Section = () => {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [animating, setAnimating] = useState(false);
+    const carouselRef = useRef(null);
 
-class Section extends Component {
-    constructor() {
-        super();
-        this.state = {
-            items : [
-                {
-                    id : 1
-                },
-                {
-                    id : 2
-                },
-                {
-                    id : 3
-                }
-            ],
-            isOpen: false,
-            height:window.innerHeight,
-            activeIndex : 0
-        }
-        this.callModal.bind(this);
-        this.onExiting = this.onExiting.bind(this);
-        this.onExited = this.onExited.bind(this);
-        this.next = this.next.bind(this);
-        this.previous = this.previous.bind(this);
+    const items = [
+        { id: 1, image: bg1 },
+        { id: 2, image: bg2 },
+        { id: 3, image: bg3 }
+    ];
+
+    const callModal = () => {
+        childRef.current.openModal();
     }
 
-    callModal = () => {
-        this.refs.child.openModal();
+    const next = () => {
+        if (animating) return;
+        const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+        setActiveIndex(nextIndex);
     }
 
-    onExiting(){
-        this.animating = true;
+    const previous = () => {
+        if (animating) return;
+        const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+        setActiveIndex(nextIndex);
     }
 
-    onExited() {
-        this.animating = false;
+    const onExiting = () => {
+        setAnimating(true);
     }
 
-    next() {
-        if (this.animating) return;
-        const nextIndex = this.state.activeIndex === this.state.items.length - 1 ? 0 : this.state.activeIndex + 1;
-        this.setState({ activeIndex : nextIndex });
-      }
-
-    previous() {
-        if (this.animating) return;
-        const nextIndex = this.state.activeIndex === 0 ? this.state.items.length - 1 : this.state.activeIndex - 1;
-        this.setState({ activeIndex : nextIndex });
+    const onExited = () => {
+        setAnimating(false);
     }
 
-    componentDidMount(){
-        var e1=document.getElementsByClassName("carousel-item");
-        for(var i=0; i<3; i++){
-            if(i===0)
-                e1[i].style.backgroundImage = `url(${bg1})`;
-            if(i===1)
-                e1[i].style.backgroundImage = `url(${bg2})`;
-            if(i===2)
-                e1[i].style.backgroundImage = `url(${bg3})`;
-        }
-    }
+    const childRef = useRef();
 
-    render() {
-        const slides = this.state.items.map((item) => {
-            return(
-                <CarouselItem
-                    key = {item.id}
-                    onExiting = {this.onExiting()}
-                    onExited = {this.onExited()}
+    return (
+        <React.Fragment>
+            <section className="home-section" id="home">
+                <Carousel
+                    ref={carouselRef}
+                    activeIndex={activeIndex}
+                    next={next}
+                    previous={previous}
+                    interval={false}
+                    ride="carousel"
+                    slide={true}
                 >
-                        <div className="bg-overlay"></div>
-                                <div className="home-center">
-                                    <div className="home-desc-center">
-                                        <Container>
-                                        {
-                                            item.id === 1 &&
-                                            <Row className="justify-content-center">
-                                                <Col md="12">
-                                                    <div className="home-content text-white">
-                                                        <div className="watch-video mt-5">
-                                                            <Link onClick={this.callModal} to="#" className="video-play-icon-trigger text-white">
-                                                                <i className="mdi mdi-play play-icon-circle play play-icon f-30"></i>
-                                                            </Link>
-                                                        </div>
-                                                        <h5 className="sub-title mt-4 text-white pt-2 text-uppercase">Xeril Template</h5>
-                                                        <h1 className="title mt-4 text-white text-uppercase">We're Giving Design <br/> Solution & Idea.</h1>
-                                                        <div className="pt-4 mt-1">
-                                                            <Link to="#" className="btn btn-outline-white mt-2 mr-3">Get Started</Link>
-                                                            <Link to="#" className="btn btn-primary mt-2">Purchase Now</Link>
-                                                        </div>
-                                                    </div>
-                                                </Col>
-                                            </Row>
-                                            }{ 
-                                            item.id === 2 &&
-                                            <Row className="justify-content-center">
-                                                <Col md={12}>
-                                                    <div className="home-content text-right">
-                                                        <div className="watch-video mt-5">
-                                                            <Link to="#" onClick={this.callModal} className="video-play-icon-trigger text-white">
-                                                                <i className="mdi mdi-play play-icon-circle play play-icon f-30"></i>
-                                                            </Link>
-                                                        </div>
-                                                        <h1 className="title mt-4 pt-3 text-white text-uppercase">Why Wait? Xeril<br/>Right Now!</h1>
-                                                        <p className="text-white mt-4 f-18">Vivamus sodales eleifend odio eget mollis Cras consectetur nisi quis pulvinar
-                                                            <br/> laoreet Nulla facilisi Maecenas eget velit laoreet.</p>
-                                                        <div className="pt-4 mt-1">
-                                                            <Link to="#" className="btn btn-outline-white mt-2 mr-3">Get Started</Link>
-                                                            <Link to="#" className="btn btn-primary mt-2">Purchase Now</Link>
-                                                        </div>
-                                                    </div>
-                                                </Col>
-                                            </Row>
-                                        }{
-                                            item.id === 3 &&
-                                            <Row className="justify-content-center">
-                                            <Col md={12}>
-                                                <div className="home-content text-center text-white">
+                    {items.map(item => (
+                        <CarouselItem
+                            key={item.id}
+                            onExiting={onExiting}
+                            onExited={onExited}
+                        >
+                            <div className="bg-overlay"></div>
+                            <div className="home-center">
+                                <div className="home-desc-center">
+                                    <Container>
+                                        <Row className="justify-content-center">
+                                            <Col md="12">
+                                                <div className="home-content text-white">
                                                     <div className="watch-video mt-5">
-                                                        <Link to="#" onClick={this.callModal} className="video-play-icon-trigger text-white">
+                                                        <Link onClick={callModal} to="#" className="video-play-icon-trigger text-white">
                                                             <i className="mdi mdi-play play-icon-circle play play-icon f-30"></i>
                                                         </Link>
                                                     </div>
-                                                    <h1 className="title mt-4 text-white text-uppercase">We Are a Web Agency <br/> Focused On Quality</h1>
-                                                    <p className="text-white mt-4 f-18">Vivamus sodales eleifend odio eget mollis Cras consectetur nisi quis pulvinar
-                                                        <br/> laoreet Nulla facilisi Maecenas eget velit laoreet.</p>
+                                                    <h5 className="sub-title mt-4 text-white pt-2 text-uppercase">Xeril Template</h5>
+                                                    <h1 className="title mt-4 text-white text-uppercase">We're Giving Design <br /> Solution & Idea.</h1>
                                                     <div className="pt-4 mt-1">
                                                         <Link to="#" className="btn btn-outline-white mt-2 mr-3">Get Started</Link>
                                                         <Link to="#" className="btn btn-primary mt-2">Purchase Now</Link>
@@ -151,40 +93,20 @@ class Section extends Component {
                                                 </div>
                                             </Col>
                                         </Row>
-                                        }
-                                        </Container>
-                                    </div>
+                                    </Container>
                                 </div>
-                </CarouselItem>
-        )}
-        );
-        return (
-            <React.Fragment>
-                <section className="home-section" id="home">
-                                <Carousel
-                                    activeIndex = {this.state.activeIndex}
-                                    next = {this.next}
-                                    previous = {this.previous}
-                                >
-                                   
-                                    {/* Render Slides Variable(Which Contains Carousel Items) */}
-                                    {slides}
-                                    <CarouselControl direction="prev" onClickHandler = {this.previous} >
-                                        <span className="carousel-control-prev-icon"></span>
-                                        <span className="sr-only">Previous</span>
-                                    </CarouselControl>
-                                    <CarouselControl direction="next" onClickHandler = {this.next} >
-                                        <span className="carousel-control-next-icon"></span>
-                                        <span className="sr-only">Next</span>
-                                    </CarouselControl>
-                                </Carousel>
-                   
-                    {/* Render ModalSection Component for Modal */}
-                    <ModalSection ref="child" channel='vimeo' videoId='99025203' />
-                </section>
-            </React.Fragment>
-        );
-    }
+                            </div>
+                        </CarouselItem>
+                    ))}
+                    <CarouselControl direction="prev" onClickHandler={previous} />
+                    <CarouselControl direction="next" onClickHandler={next} />
+                </Carousel>
+
+                {/* Render ModalSection Component for Modal */}
+                <ModalSection ref={childRef} channel='vimeo' videoId='99025203' />
+            </section>
+        </React.Fragment>
+    );
 }
 
 export default Section;

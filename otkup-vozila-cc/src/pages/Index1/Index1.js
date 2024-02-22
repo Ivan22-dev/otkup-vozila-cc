@@ -1,4 +1,4 @@
-import React, { Component, Suspense } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 
 const NavbarPage = React.lazy(() => import('../../components/Navbar/Navbar_Page'));
 const Section = React.lazy(() => import('./section'));
@@ -14,105 +14,91 @@ const Blog = React.lazy(() => import('../../components/Blog/blog'));
 const Cta = React.lazy(() => import('../../components/Cta/Cta'));
 const GetInTouch = React.lazy(() => import('../../components/GetInTouch/GetInTouch'));
 
+const Index1 = () => {
+    const [navItems] = useState([
+        { id: 1 , idnm : "home", navheading: "Home" },
+        { id: 2 , idnm : "about", navheading: "About" },
+        { id: 3 , idnm : "portfolio", navheading: "Portfolio" },
+        { id: 4 , idnm : "team", navheading: "Team" },
+        { id: 5 , idnm : "testimonial", navheading: "Testimonial" },
+        { id: 6 , idnm : "pricing", navheading: "Pricing" },
+        { id: 7 , idnm : "blog", navheading: "Blog" },
+        { id: 8 , idnm : "contact", navheading: "Contact" },
+    ]);
+    const [imglight, setImgLight] = useState(true);
+    const [navClass, setNavClass] = useState("");
 
-class Index1 extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            navItems : [
-                { id: 1 , idnm : "home", navheading: "Home" },
-                { id: 2 , idnm : "about", navheading: "About" },
-                { id: 3 , idnm : "portfolio", navheading: "Portfolio" },
-                { id: 4 , idnm : "team", navheading: "Team" },
-                { id: 5 , idnm : "testimonial", navheading: "Testimonial" },
-                { id: 6 , idnm : "pricing", navheading: "Pricing" },
-                { id: 7 , idnm : "blog", navheading: "Blog" },
-                { id: 8 , idnm : "contact", navheading: "Contact" },
-            ],
-            pos : document.documentElement.scrollTop,
-            imglight : true,
-            navClass : ""
+    useEffect(() => {
+        const scrollNavigation = () => {
+            const scrollY = window.scrollY;
+            if (scrollY > 0) {
+                setNavClass("nav-sticky");
+                setImgLight(false);
+            } else {
+                setNavClass("");
+                setImgLight(true);
+            }
         };
-    }
 
-    componentDidMount() {
-        window.addEventListener("scroll", this.scrollNavigation, true);
-    }
+        window.addEventListener("scroll", scrollNavigation);
 
-    componentWillUnmount(){
-        window.removeEventListener("scroll", this.scrollNavigation, true);
-    }
+        return () => {
+            window.removeEventListener("scroll", scrollNavigation);
+        };
+    }, []);
 
-    scrollNavigation = () => {
-        var scrollup=document.documentElement.scrollTop;
-        if(scrollup > this.state.pos)
-        {
-            this.setState({navClass : "nav-sticky", imglight : false});
-        }
-        else
-        {
-            this.setState({navClass : "", imglight : true});
-        }
-    };
-
-    Loader = () => {
-        return (
-            <div id="preloader">
-                <div id="status">
-                    <div className="spinner">Loading...</div>
-                </div>
+    const Loader = () => (
+        <div id="preloader">
+            <div id="status">
+                <div className="spinner">Loading...</div>
             </div>
-        );
-    }
+        </div>
+    );
 
-    render() {
-        return (
-            <React.Fragment>
-                <Suspense fallback = {this.Loader()} >
+    return (
+        <React.Fragment>
+            <Suspense fallback={<Loader />}>
+                {/* Importing Navbar */}
+                <NavbarPage navItems={navItems} navClass={navClass} imglight={imglight} />
 
-                    {/* Importing Navbar */}
-                    <NavbarPage navItems={this.state.navItems} navClass={this.state.navClass} imglight={this.state.imglight} />
+                {/* Importing section */}
+                <Section/>
 
-                    {/* Importing section */}
-                    <Section/>
+                {/* Importing about us */}
+                <About/>
 
-                    {/* Importing about us */}
-                    <About/>
+                {/* Importing process */}
+                <Process/>
 
-                    {/* Importing process */}
-                    <Process/>
+                {/* Importing portfolio */}
+                <Portfolio/>
 
-                    {/* Importing portfolio */}
-                    <Portfolio/>
+                {/* Importing counter */}
+                <Counter/>
 
-                    {/* Importing counter */}
-                    <Counter/>
+                {/* Importing team */}
+                <OurTeam/>
 
-                    {/* Importing team */}
-                    <OurTeam/>
+                {/* Importing testimonials */}
+                <Testimonials/>
 
-                    {/* Importing testimonials */}
-                    <Testimonials/>
+                {/* Importing pricing */}
+                <Pricing/>
 
-                    {/* Importing pricing */}
-                    <Pricing/>
+                {/* Importing blog */}
+                <Blog/>
 
-                    {/* Importing blog */}
-                    <Blog/>
+                {/* Importing cta */}
+                <Cta/>
 
-                    {/* Importing cta */}
-                    <Cta/>
+                {/* Importing get in touch */}
+                <GetInTouch/>
 
-                    {/* Importing get in touch */}
-                    <GetInTouch/>
-                    
-                    {/* Importing footer */}
-                    <Footer/>
-                </Suspense>
-
-            </React.Fragment>
-        );
-    }
-}
+                {/* Importing footer */}
+                <Footer/>
+            </Suspense>
+        </React.Fragment>
+    );
+};
 
 export default Index1;
