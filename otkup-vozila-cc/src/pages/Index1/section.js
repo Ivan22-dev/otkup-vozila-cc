@@ -26,9 +26,9 @@ const Section = () => {
     const carouselRef = useRef(null);
 
     const items = [
-        { id: 1, image: bg1 },
-        { id: 2, image: bg2 },
-        { id: 3, image: bg3 }
+        { id: 1, image: bg1, text:"OTKUP RABLJENIH VOZILA" },
+        { id: 2, image: bg2, text:"NAJBOLJE CIJENE" },
+        { id: 3, image: bg3, text:"PROVJERENA SIGURNOST" }
     ];
 
 
@@ -82,7 +82,7 @@ const Section = () => {
                                                     <div className="watch-video mt-5">
                                                     </div>
                                                     <h5 className="sub-title mt-4 text-white pt-2 text-uppercase">Otkup vozila CC</h5>
-                                                    <h1 className="title mt-4 text-white text-uppercase">OTKUP RABLJENIH VOZILA </h1>
+                                                    <h1 className="title mt-4 text-white text-uppercase">{item.text}</h1>
                                                     <div className="pt-4 mt-1">
                                                          <WhatsappButton phoneNumber="385957483524"/>
                                                         <PhoneButton phoneNumber="385957483524"/> 
