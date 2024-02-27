@@ -6,16 +6,19 @@ import {
     Col,
     Carousel,
     CarouselItem,
-    CarouselControl
+    CarouselControl,
+    Button
 } from "reactstrap";
+import WhatsappButton from "../../components/buttons/whatsappButton";
+import PhoneButton from '../../components/buttons/phoneButton';
 
 // Importing Modal
 import ModalSection from '../../components/common/ModalSection';
 
 // Import Images
-import bg1 from "../../assets/images/bg-1.jpg";
-import bg2 from "../../assets/images/bg-2.jpg";
-import bg3 from "../../assets/images/bg-3.jpg";
+import bg1 from "../../assets/images/bg1.jpg";
+import bg2 from "../../assets/images/bg2.jpg";
+import bg3 from "../../assets/images/bg3.jpg";
 
 const Section = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -28,9 +31,6 @@ const Section = () => {
         { id: 3, image: bg3 }
     ];
 
-    const callModal = () => {
-        childRef.current.openModal();
-    }
 
     const next = () => {
         if (animating) return;
@@ -80,15 +80,12 @@ const Section = () => {
                                             <Col md="12">
                                                 <div className="home-content text-white">
                                                     <div className="watch-video mt-5">
-                                                        <Link onClick={callModal} to="#" className="video-play-icon-trigger text-white">
-                                                            <i className="mdi mdi-play play-icon-circle play play-icon f-30"></i>
-                                                        </Link>
                                                     </div>
-                                                    <h5 className="sub-title mt-4 text-white pt-2 text-uppercase">Xeril Template</h5>
-                                                    <h1 className="title mt-4 text-white text-uppercase">We're Giving Design <br /> Solution & Idea.</h1>
+                                                    <h5 className="sub-title mt-4 text-white pt-2 text-uppercase">Otkup vozila CC</h5>
+                                                    <h1 className="title mt-4 text-white text-uppercase">OTKUP RABLJENIH VOZILA </h1>
                                                     <div className="pt-4 mt-1">
-                                                        <Link to="#" className="btn btn-outline-white mt-2 mr-3">Get Started</Link>
-                                                        <Link to="#" className="btn btn-primary mt-2">Purchase Now</Link>
+                                                         <WhatsappButton phoneNumber="385957483524"/>
+                                                        <PhoneButton phoneNumber="385957483524"/> 
                                                     </div>
                                                 </div>
                                             </Col>
@@ -103,7 +100,7 @@ const Section = () => {
                 </Carousel>
 
                 {/* Render ModalSection Component for Modal */}
-                <ModalSection ref={childRef} channel='vimeo' videoId='99025203' />
+                {/* <ModalSection ref={childRef} channel='vimeo' videoId='99025203' /> */}
             </section>
         </React.Fragment>
     );

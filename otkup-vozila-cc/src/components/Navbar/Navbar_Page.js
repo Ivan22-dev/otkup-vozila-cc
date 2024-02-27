@@ -34,13 +34,13 @@ const NavbarPage = (props) => {
         <React.Fragment>
             <Navbar expand="lg" fixed="top" className={"navbar-custom sticky sticky-dark " + props.navClass}>
                 <Container>
-                    <NavbarBrand className="logo text-uppercase" href="/">
+                    {/* <NavbarBrand className="logo text-uppercase" href="/">
                         {
                             props.imglight === true ?
                                 <img src={logolight} alt="" className="logo-light" height="22" />
                                 : <img src={logodark} alt="" className="logo-dark" height="22" />
                         }
-                    </NavbarBrand>
+                    </NavbarBrand> */}
                     <NavbarToggler onClick={toggle}><i className="mdi mdi-menu"></i></NavbarToggler>
 
                     <Collapse id="navbarCollapse" isOpen={isOpenMenu} navbar>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Form, FormGroup, Input, Label, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import ModalSection from '../../components/common/ModalSection';
-import bg2 from "../../assets/images/bg-2.jpg";
+import bg2 from "../../assets/images/bg2.jpg";
 
 const Section = () => {
 
