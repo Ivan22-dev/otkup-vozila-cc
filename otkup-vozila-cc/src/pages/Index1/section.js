@@ -19,6 +19,7 @@ import ModalSection from '../../components/common/ModalSection';
 import bg1 from "../../assets/images/bg1.jpg";
 import bg2 from "../../assets/images/bg2.jpg";
 import bg3 from "../../assets/images/bg3.jpg";
+import ViberButton from '../../components/buttons/viberButton';
 
 const Section = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -99,7 +100,8 @@ const Section = () => {
                                                     <h1 className="title mt-4 text-white text-uppercase">{item.text}</h1>
                                                     <div className="pt-4 mt-1">
                                                          <WhatsappButton phoneNumber="385957483524"/>
-                                                        <PhoneButton phoneNumber="385957483524"/> 
+                                                        <PhoneButton phoneNumber="385957483524"/>
+                                                        <ViberButton phoneNumber="385957483524"/> 
                                                     </div>
                                                 </div>
                                             </Col>
