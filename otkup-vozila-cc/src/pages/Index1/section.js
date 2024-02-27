@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import {
     Container,
@@ -6,16 +6,20 @@ import {
     Col,
     Carousel,
     CarouselItem,
-    CarouselControl
+    CarouselControl,
+    Button
 } from "reactstrap";
+import WhatsappButton from "../../components/buttons/whatsappButton";
+import PhoneButton from '../../components/buttons/phoneButton';
 
 // Importing Modal
 import ModalSection from '../../components/common/ModalSection';
 
 // Import Images
-import bg1 from "../../assets/images/bg-1.jpg";
-import bg2 from "../../assets/images/bg-2.jpg";
-import bg3 from "../../assets/images/bg-3.jpg";
+import bg1 from "../../assets/images/bg1.jpg";
+import bg2 from "../../assets/images/bg2.jpg";
+import bg3 from "../../assets/images/bg3.jpg";
+import ViberButton from '../../components/buttons/viberButton';
 
 const Section = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -23,14 +27,11 @@ const Section = () => {
     const carouselRef = useRef(null);
 
     const items = [
-        { id: 1, image: bg1 },
-        { id: 2, image: bg2 },
-        { id: 3, image: bg3 }
+        { id: 1, image: bg1, text:"OTKUP RABLJENIH VOZILA" },
+        { id: 2, image: bg2, text:"NAJBOLJE CIJENE" },
+        { id: 3, image: bg3, text:"PROVJERENA SIGURNOST" }
     ];
 
-    const callModal = () => {
-        childRef.current.openModal();
-    }
 
     const next = () => {
         if (animating) return;
@@ -54,6 +55,18 @@ const Section = () => {
 
     const childRef = useRef();
 
+    useEffect(() => {
+        var e1=document.getElementsByClassName("carousel-item");
+        for(var i=0; i<3; i++){
+            if(i===0)
+                e1[i].style.backgroundImage = `url(${bg1})`;
+            if(i===1)
+                e1[i].style.backgroundImage = `url(${bg2})`;
+            if(i===2)
+                e1[i].style.backgroundImage = `url(${bg3})`;
+        }
+    })
+
     return (
         <React.Fragment>
             <section className="home-section" id="home">
@@ -67,10 +80,12 @@ const Section = () => {
                     slide={true}
                 >
                     {items.map(item => (
+                    
                         <CarouselItem
                             key={item.id}
                             onExiting={onExiting}
                             onExited={onExited}
+                            
                         >
                             <div className="bg-overlay"></div>
                             <div className="home-center">
@@ -80,15 +95,13 @@ const Section = () => {
                                             <Col md="12">
                                                 <div className="home-content text-white">
                                                     <div className="watch-video mt-5">
-                                                        <Link onClick={callModal} to="#" className="video-play-icon-trigger text-white">
-                                                            <i className="mdi mdi-play play-icon-circle play play-icon f-30"></i>
-                                                        </Link>
                                                     </div>
-                                                    <h5 className="sub-title mt-4 text-white pt-2 text-uppercase">Xeril Template</h5>
-                                                    <h1 className="title mt-4 text-white text-uppercase">We're Giving Design <br /> Solution & Idea.</h1>
+                                                    <h5 className="sub-title mt-4 text-white pt-2 text-uppercase">Otkup vozila CC</h5>
+                                                    <h1 className="title mt-4 text-white text-uppercase">{item.text}</h1>
                                                     <div className="pt-4 mt-1">
-                                                        <Link to="#" className="btn btn-outline-white mt-2 mr-3">Get Started</Link>
-                                                        <Link to="#" className="btn btn-primary mt-2">Purchase Now</Link>
+                                                         <WhatsappButton phoneNumber="385957483524"/>
+                                                        <PhoneButton phoneNumber="385957483524"/>
+                                                        <ViberButton phoneNumber="385957483524"/> 
                                                     </div>
                                                 </div>
                                             </Col>
@@ -103,7 +116,7 @@ const Section = () => {
                 </Carousel>
 
                 {/* Render ModalSection Component for Modal */}
-                <ModalSection ref={childRef} channel='vimeo' videoId='99025203' />
+                {/* <ModalSection ref={childRef} channel='vimeo' videoId='99025203' /> */}
             </section>
         </React.Fragment>
     );
