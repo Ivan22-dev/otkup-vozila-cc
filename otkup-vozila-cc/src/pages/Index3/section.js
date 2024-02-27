@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 import ReactTextRotator from 'react-text-rotator';
 import ModalSection from '../../components/common/ModalSection';
-import bg4 from "../../assets/images/bg-4.jpg";
+import bg4 from "../../assets/images/bg3.jpg";
 
 const RotateComponent = () => (
     <ReactTextRotator
