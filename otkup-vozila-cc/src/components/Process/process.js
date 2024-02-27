@@ -6,12 +6,11 @@ import SectionTitle from "../common/section-title";
 import ProcessBox from "./process-box";
 
 const Process = () => {
-    const processes = [
-        { id: "01", title: "Concept", desc: "Interdum malesuada fames ipsum primi faucibus." },
-        { id: "02", title: "Plan", desc: "Interdum malesuada fames ipsum primi faucibus." },
-        { id: "03", title: "Design", desc: "Interdum malesuada fames ipsum primi faucibus." },
-        { id: "04", title: "Development", desc: "Interdum malesuada fames ipsum primi faucibus." },
-    ];
+    const  processes = [
+                { id : "01",  desc : "Detaljno slikajte svoje vozilo izvana, te unutrašnjost vozila." },
+                { id : "02", desc : "Kratka povijest vozila. Kilometri i servisi." },
+                { id : "03",  desc : "Slanje navedenog na Whatsapp, Viber ili nas jednostavno kontaktirajte." },
+            ];
 
     return (
         <React.Fragment>
@@ -19,11 +18,11 @@ const Process = () => {
                 <div className="bg-overlay"></div>
                 <Container>
                     <SectionTitle
-                        title="Our Process"
-                        desc="Porttitor dolor donec pulvinar tortor nisi quis dapibus tortor commodo sed Pellentesque hendrerit pellentesque libero nec sollicitudin."
+                        title="KAKO SAZNATI CIJENU"
+                        // desc="Porttitor dolor donec pulvinar tortor nisi quis dapibus tortor commodo sed Pellentesque hendrerit pellentesque libero nec sollicitudin."
                         isLight={true}
                     />
-                    <Row className="mt-5 pt-2">
+                    <Row className="mt-5 pt-2 justify-content-center">
                         <ProcessBox processes={processes} />
                     </Row>
                 </Container>

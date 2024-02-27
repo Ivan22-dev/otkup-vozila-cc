@@ -29,7 +29,7 @@ const About = () => {
                 </Container>
             </section>
 
-            <BestSkills />
+            {/* <BestSkills /> */}
         </React.Fragment>
     );
 };
