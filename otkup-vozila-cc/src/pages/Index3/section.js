@@ -32,6 +32,7 @@ const Section = () => {
     const callModal = () => {
         this.refs.child.openModal();
     };
+    {console.log(`url(${bg4})`)}
 
     return (
         <React.Fragment>

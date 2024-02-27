@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import {
     Container,
@@ -54,6 +54,18 @@ const Section = () => {
 
     const childRef = useRef();
 
+    useEffect(() => {
+        var e1=document.getElementsByClassName("carousel-item");
+        for(var i=0; i<3; i++){
+            if(i===0)
+                e1[i].style.backgroundImage = `url(${bg1})`;
+            if(i===1)
+                e1[i].style.backgroundImage = `url(${bg2})`;
+            if(i===2)
+                e1[i].style.backgroundImage = `url(${bg3})`;
+        }
+    })
+
     return (
         <React.Fragment>
             <section className="home-section" id="home">
@@ -67,10 +79,12 @@ const Section = () => {
                     slide={true}
                 >
                     {items.map(item => (
+                    
                         <CarouselItem
                             key={item.id}
                             onExiting={onExiting}
                             onExited={onExited}
+                            
                         >
                             <div className="bg-overlay"></div>
                             <div className="home-center">
