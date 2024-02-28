@@ -14,7 +14,7 @@ const Process = () => {
       desc: "Detaljno slikajte svoje vozilo izvana, te unutrašnjost vozila.",
     },
     { id: "02", desc: ". Kontaktirajte nas, recite nam sve o vozilu i pošaljite nam fotografije." },
-    { id: "03", desc: "Nakon dogovora o cijeni otkupa vozila odmah se upućujemo Vama." },
+    { id: "03", desc: "Nakon dogovora o cijeni otkupa vozila odmah se upućujemo prema Vama." },
   ];
 
   return (
