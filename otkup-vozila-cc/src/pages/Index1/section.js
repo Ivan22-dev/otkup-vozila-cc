@@ -7,7 +7,6 @@ import {
     Carousel,
     CarouselItem,
     CarouselControl,
-    Button
 } from "reactstrap";
 import WhatsappButton from "../../components/buttons/whatsappButton";
 import PhoneButton from '../../components/buttons/phoneButton';
@@ -27,9 +26,9 @@ const Section = () => {
     const carouselRef = useRef(null);
 
     const items = [
-        { id: 1, image: bg1, text:"OTKUP RABLJENIH VOZILA" },
-        { id: 2, image: bg2, text:"NAJBOLJE CIJENE" },
-        { id: 3, image: bg3, text:"PROVJERENA SIGURNOST" }
+        { id: 1, image: bg1, text:"OTKUP RABLJENIH VOZILA", subtitle: "Otkup i isplata odmah" },
+        { id: 2, image: bg2, text:"NAJBOLJE CIJENE", subtitle:"Radimo na području cijele Hrvatske" },
+        { id: 3, image: bg3, text:"PROVJERENA SIGURNOST", subtitle:"Dostupni 0-24" }
     ];
 
 
@@ -70,6 +69,7 @@ const Section = () => {
     return (
         <React.Fragment>
             <section className="home-section" id="home">
+
                 <Carousel
                     ref={carouselRef}
                     activeIndex={activeIndex}
@@ -79,6 +79,7 @@ const Section = () => {
                     ride="carousel"
                     slide={true}
                 >
+
                     {items.map(item => (
                     
                         <CarouselItem
@@ -87,17 +88,16 @@ const Section = () => {
                             onExited={onExited}
                             
                         >
+
                             <div className="bg-overlay"></div>
                             <div className="home-center">
                                 <div className="home-desc-center">
                                     <Container>
                                         <Row className="justify-content-center">
-                                            <Col md="12">
+                                            <Col md="12" >
                                                 <div className="home-content text-white">
-                                                    <div className="watch-video mt-5">
-                                                    </div>
-                                                    <h5 className="sub-title mt-4 text-white pt-2 text-uppercase">Otkup vozila CC</h5>
                                                     <h1 className="title mt-4 text-white text-uppercase">{item.text}</h1>
+                                                    <h3 className="mt-4 text-white">{item.subtitle}</h3>
                                                     <div className="pt-4 mt-1">
                                                          <WhatsappButton phoneNumber="385957483524"/>
                                                         <PhoneButton phoneNumber="385957483524"/>
