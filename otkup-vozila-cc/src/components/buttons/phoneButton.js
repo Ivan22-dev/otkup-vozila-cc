@@ -8,7 +8,7 @@ const PhoneButton = ({ phoneNumber }) => {
       target="_blank"
       href={`tel:${phoneNumber}`}
       color="danger"
-      className="btn btn-outline-white mt-2 mr-3 font-weight-bold"
+      className="btn btn-outline-white mt-2 mr-2 font-weight-bold"
     >
       <BsTelephoneInbound className="mr-3" />
       Nazovi nas

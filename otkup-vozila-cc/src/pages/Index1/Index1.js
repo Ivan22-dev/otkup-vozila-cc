@@ -59,7 +59,7 @@ const Index1 = () => {
         {/* Importing process */}
         <Process />
 
-        <Njuskalo />
+        {/* <Njuskalo /> */}
 
         {/* Importing get in touch */}
         <GetInTouch />

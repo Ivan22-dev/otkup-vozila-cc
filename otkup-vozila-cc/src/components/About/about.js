@@ -5,6 +5,8 @@ import { Container, Row } from "reactstrap";
 import SectionTitle from "../common/section-title";
 import AboutBox from "./about-box";
 import BestSkills from "./bestSkills";
+import WhatsappButton from "../buttons/whatsappButton";
+import PhoneButton from "../buttons/phoneButton";
 
 const About = () => {
   const [data] = useState([
@@ -35,16 +37,16 @@ const About = () => {
     <React.Fragment>
       <section className="section" id="about">
         <Container>
-          <SectionTitle
-            title="O nama"
-            subtitle="TKO SMO MI?"
-            desc="Comfort Cars je tvrtka koja se bavi uvozom i prodajom rabljenih vozila iz EU"
-          />
+          <SectionTitle title="OTKUP SVIH VRSTA VOZILA" />
 
           <Row className="mt-5 pt-2">
             <AboutBox data={data} />
           </Row>
         </Container>
+        <Row className="text-center justify-content-center overflow-hidden">
+          <WhatsappButton phoneNumber={"385957483524"} />
+          <PhoneButton phoneNumber={"385957483524"} />
+        </Row>
       </section>
 
       {/* <BestSkills /> */}
