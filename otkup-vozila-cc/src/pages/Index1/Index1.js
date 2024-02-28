@@ -45,10 +45,10 @@ const Index1 = () => {
   );
 
   return (
-    <React.Fragment>
+    <React.Fragment style={{ maxWidth: "100%" }}>
       <Suspense fallback={<Loader />}>
         {/* Importing Navbar */}
-        <NavbarPage navItems={navItems} navClass={navClass} imglight={imglight} />
+        <NavbarPage style={{ maxWidth: "100%" }} navItems={navItems} navClass={navClass} imglight={imglight} />
 
         {/* Importing section */}
         <Section />

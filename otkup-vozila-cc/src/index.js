@@ -8,5 +8,6 @@ const app = (
     <App />
   </BrowserRouter>
 );
+document.getElementById("root").style.overflowX = "hidden";
 ReactDOM.render(app, document.getElementById("root"));
 serviceWorker.unregister();

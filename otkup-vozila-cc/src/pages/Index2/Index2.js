@@ -47,7 +47,7 @@ const Index2 = () => {
     <React.Fragment>
       <Suspense fallback={<Loader />}>
         {/* Importing Navbar */}
-        <NavbarPage navItems={navItems} navClass={navClass} imglight={imglight} />
+        <NavbarPage style={{ maxWidth: "100%" }} navItems={navItems} navClass={navClass} imglight={imglight} />
 
         {/* Importing section */}
         <Section />
