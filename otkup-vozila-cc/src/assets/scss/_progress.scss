@@ -3,34 +3,34 @@
 //
 .bg-progress {
   background-image: url(../images/features/bg-1.jpg);
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-size: cover;
   position: relative;
   background-position: center;
 }
 
 .progress-border {
-    &:before {
-        content: "";
-        border: 1px solid rgba($white, 0.4%);
-        position: absolute;
-        width: 72%;
-        left: 64%;
-        top: 65px;
-    }  
+  &:before {
+    content: "";
+    border: 1px solid rgba($white, 0.4%);
+    position: absolute;
+    width: 72%;
+    left: 64%;
+    top: 65px;
+  }
 }
- 
+
 .progress-count {
-    h3 {
-        border: 2px solid rgba($white, 0.4%);
-        background: $primary;
-        color: $white;
-        width: 80px;
-        height: 80px;
-        line-height: 80px;
-        border-radius: 50%;
-        margin: 0 auto;
-    }
+  h3 {
+    border: 2px solid rgba($white, 0.4%);
+    background: $primary;
+    color: $white;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
 }
 
 .progress-content {
