@@ -9,9 +9,12 @@ import WhatsappButton from "../../components/buttons/whatsappButton";
 import ViberButton from "../buttons/viberButton";
 const Process = () => {
   const processes = [
-    { id: "01", desc: "Detaljno slikajte svoje vozilo izvana, te unutrašnjost vozila." },
-    { id: "02", desc: "Kratka povijest vozila. Kilometri i servisi." },
-    { id: "03", desc: "Slanje navedenog na Whatsapp, Viber ili nas jednostavno kontaktirajte." },
+    {
+      id: "01",
+      desc: "Detaljno slikajte svoje vozilo izvana, te unutrašnjost vozila.",
+    },
+    { id: "02", desc: ". Kontaktirajte nas, recite nam sve o vozilu i pošaljite nam fotografije." },
+    { id: "03", desc: "Nakon dogovora o cijeni otkupa vozila odmah se upućujemo Vama." },
   ];
 
   return (
@@ -19,11 +22,7 @@ const Process = () => {
       <section className="bg-progress section">
         <div className="bg-overlay"></div>
         <Container>
-          <SectionTitle
-            title="KAKO SAZNATI CIJENU"
-            // desc="Porttitor dolor donec pulvinar tortor nisi quis dapibus tortor commodo sed Pellentesque hendrerit pellentesque libero nec sollicitudin."
-            isLight={true}
-          />
+          <SectionTitle title="OTKUP U 3 KORAKA" isLight={true} />
           <Row className="mt-5 pt-2 justify-content-center">
             <ProcessBox processes={processes} />
           </Row>

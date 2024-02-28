@@ -35,6 +35,8 @@
 
 .progress-content {
     position: relative;
+     height: 10rem;
+     text-wrap: balance;
     &:before {
         content: "";
         position: absolute;
