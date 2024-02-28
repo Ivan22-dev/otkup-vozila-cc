@@ -12,7 +12,6 @@ const ViberButton = ({ phoneNumber }) => {
     const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
     return regex.test(navigator.userAgent);
   }
-  console.log(isMobile());
   return (
     <>
       <Button
@@ -21,7 +20,7 @@ const ViberButton = ({ phoneNumber }) => {
         target={isMobile() ? "" : `_blank`}
         href={isMobile() ? `viber://chat?number=+${phoneNumber}` : ``}
         style={{ backgroundColor: "#59267c" }}
-        className="btn  font-weight-bold mt-2 mr-2 "
+        className="btn  font-weight-bold mt-2 mr-2"
       >
         <BsChatDots className="mr-2" />
         Viber
