@@ -6,6 +6,7 @@ import SectionTitle from "../common/section-title";
 import ProcessBox from "./process-box";
 import PhoneButton from "../../components/buttons/phoneButton";
 import WhatsappButton from "../../components/buttons/whatsappButton";
+import ViberButton from "../buttons/viberButton";
 const Process = () => {
   const processes = [
     { id: "01", desc: "Detaljno slikajte svoje vozilo izvana, te unutrašnjost vozila." },
@@ -30,6 +31,7 @@ const Process = () => {
             <div style={{ zIndex: "990" }}>
               <WhatsappButton phoneNumber="385957483524" />
               <PhoneButton phoneNumber="385957483524" />
+              <ViberButton phoneNumber="385957483524" />
             </div>
           </Row>
         </Container>
