@@ -1,37 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Container, Row } from "reactstrap";
 
 // Import Section Title
 import SectionTitle from "../common/section-title";
 import AboutBox from "./about-box";
 import BestSkills from "./bestSkills";
+import WhatsappButton from "../buttons/whatsappButton";
+import PhoneButton from "../buttons/phoneButton";
 
 const About = () => {
-    const [data] = useState([
-        { icon: "mdi mdi-monitor", title: "Web design", desc: "Aliquam tempor an tidunt liberonon feugiat quam risu tortor." },
-        { icon: "mdi mdi-nfc-variant", title: "Development", desc: "Aliquam tempor an tidunt liberonon feugiat quam risu tortor.", isLight: true },
-        { icon: "mdi mdi-lightbulb-on-outline", title: "Branding", desc: "Aliquam tempor an tidunt liberonon feugiat quam risu tortor.-" },
-    ]);
+  const [data] = useState([
+    {
+      icon: "mdi mdi-phone",
+      title: "Dostupni 0-24",
+      desc: "Uvijek nas možete kontaktirati. Dostupni smo svaki dan, cijeli dan! ",
+    },
+    {
+      icon: "mdi mdi-map",
+      title: "Cijela Hrvatska",
+      desc: "Otkup svih vrsta vozila radimo po teritoriju cijele Hrvatske!",
+      isLight: true,
+    },
+    {
+      icon: "mdi mdi-car",
+      title: "Dolazak odmah",
+      desc: "Po Vašem pozivu i dogovoru oko cijene odmah se upućujemo prema Vama, gdje god se Vi nalazili!",
+    },
+    // {
+    //   icon: "mdi mdi-cash",
+    //   title: "Isplata odmah",
+    //   desc: "Isplatu Vašeg vozila vršimo odmah nakon pregleda vozila!",
+    // },
+  ]);
 
-    return (
-        <React.Fragment>
-            <section className="section" id="about">
-                <Container>
-                    <SectionTitle
-                        title="About Agency"
-                        subtitle="WHO WE ARE?"
-                        desc="Porttitor dolor donec pulvinar tortor nisi quis dapibus tortor commodo sed Pellentesque hendrerit pellentesque libero nec sollicitudin."
-                    />
+  return (
+    <React.Fragment>
+      <section className="section" id="about">
+        <Container>
+          <SectionTitle title="OTKUP SVIH VRSTA VOZILA" />
 
-                    <Row className="mt-5 pt-2">
-                        <AboutBox data={data} />
-                    </Row>
-                </Container>
-            </section>
+          <Row className="mt-5 pt-2">
+            <AboutBox data={data} />
+          </Row>
+        </Container>
+        <Row className="text-center justify-content-center overflow-hidden">
+          <WhatsappButton phoneNumber={"385957483524"} />
+          <PhoneButton phoneNumber={"385957483524"} />
+        </Row>
+      </section>
 
-            <BestSkills />
-        </React.Fragment>
-    );
+      {/* <BestSkills /> */}
+    </React.Fragment>
+  );
 };
 
 export default About;
