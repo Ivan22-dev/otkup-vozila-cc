@@ -40,12 +40,12 @@ export default function FormDialog() {
       >
         <DialogTitle>Popuni prijavu za otkup</DialogTitle>
         <DialogContent style={{ height: "400px" }}>{page === 0 && <FirstSlide />}</DialogContent>
-        <DialogActions>
+        {/* <DialogActions>
           {page === 0 && <Button onClick={handleClose}>Odustani</Button>}
           {page !== 0 && <Button onClick={() => setPage(page - 1)}>Natrag</Button>}
           <Button onClick={() => setPage(page + 1)}>Nastavi</Button>
           <ScrollButton />
-        </DialogActions>
+        </DialogActions> */}
       </Dialog>
     </React.Fragment>
   );

@@ -7,6 +7,8 @@ import SectionTitle from "../common/section-title";
 
 // Import Images
 import map from "../../assets/images/features/map.png";
+import { FirstSlide } from "../Modal/components/FirstSlide";
+import EngineType from "../Modal/components/EngineType";
 
 const GetInTouch = () => {
   return (
@@ -69,6 +71,7 @@ const GetInTouch = () => {
                       <FormGroup className="mt-3">
                         <AvField
                           name="name"
+                          label="Ime i prezime"
                           id="name"
                           type="text"
                           className="form-control"
@@ -85,10 +88,11 @@ const GetInTouch = () => {
                       <FormGroup className="mt-3">
                         <AvField
                           name="email"
+                          label="Email"
                           id="email"
                           type="email"
                           className="form-control"
-                          placeholder="Email"
+                          placeholder="testemail@gmail.com"
                           errorMessage="Unesite mail"
                           validate={{
                             required: { value: true },
@@ -103,15 +107,112 @@ const GetInTouch = () => {
                         <AvField
                           name="number"
                           id="number"
+                          label="Broj mobitela"
                           type="number"
                           className="form-control"
-                          placeholder="Vaš broj"
+                          placeholder="09XXXXXXXX"
                           errorMessage="Unesite Vaš broj"
                           validate={{
                             required: { value: true },
                           }}
                         />
                       </FormGroup>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col lg={6}>
+                      <FormGroup className="mt-3">
+                        <AvField
+                          name="brand"
+                          id="brand"
+                          label="Marka vozila"
+                          type="text"
+                          className="form-control"
+                          placeholder="Volvo"
+                          errorMessage="Unesite marku vozila"
+                          validate={{ required: { value: true } }}
+                        />
+                      </FormGroup>
+                    </Col>
+                    <Col lg={6}>
+                      <FormGroup className="mt-3">
+                        <AvField
+                          name="model"
+                          label="Model vozila"
+                          id="model"
+                          type="text"
+                          className="form-control"
+                          placeholder="XC 60"
+                          errorMessage="Unesite model vozila"
+                          validate={{ required: { value: true } }}
+                        />
+                      </FormGroup>
+                    </Col>
+                  </Row>
+
+                  <Row>
+                    <Col lg={6}>
+                      <FormGroup className="mt-3">
+                        <AvField
+                          name="year"
+                          id="year"
+                          label="Godište automobila"
+                          type="text"
+                          className="form-control"
+                          placeholder="2021"
+                          errorMessage="Unesite godinu proizvodnje vozila"
+                          validate={{ required: { value: true } }}
+                        />
+                      </FormGroup>
+                    </Col>
+                    <Col lg={6}>
+                      <FormGroup className="mt-3">
+                        <AvField
+                          name="registration"
+                          id="registration"
+                          label="Trajanje registracije"
+                          type="text"
+                          className="form-control"
+                          placeholder="10/24"
+                          errorMessage="Unesite trajanje rregistracije"
+                          validate={{ required: { value: true } }}
+                        />
+                      </FormGroup>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col lg={6}>
+                      <FormGroup className="mt-3">
+                        <AvField
+                          name="price"
+                          label="Cijena (u eurima)"
+                          id="price"
+                          type="number"
+                          className="form-control"
+                          placeholder="13000"
+                          errorMessage="Željena cijena (u eurima)"
+                          validate={{ required: { value: true } }}
+                        />
+                      </FormGroup>
+                    </Col>
+                    <Col lg={6}>
+                      <FormGroup className="mt-3">
+                        <AvField
+                          name="kilometri"
+                          id="kilometri"
+                          label="Kilometraža vozila"
+                          type="text"
+                          className="form-control"
+                          placeholder="160000 km"
+                          errorMessage="Unesite kilometražu vozila"
+                          validate={{ required: { value: true } }}
+                        />
+                      </FormGroup>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col lg={12}>
+                      <EngineType />
                     </Col>
                   </Row>
 
@@ -123,7 +224,7 @@ const GetInTouch = () => {
                           id="comments"
                           rows="5"
                           className="form-control"
-                          placeholder="Poruka"
+                          placeholder="Dodatni detalji o vozilu"
                         ></textarea>
                       </FormGroup>
                     </Col>
