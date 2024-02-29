@@ -106,7 +106,7 @@ const Section = () => {
                                       textUnderlineOffset: "8px",
                                     }}
                                   >
-                                    <a style={{ color: "#979797" }}>Ili nas kontaktirajte nas putem obrasca</a>
+                                    <a style={{ color: "#979797" }}>Ili nas kontaktirajte putem obrasca</a>
                                   </h6>
                                 </NavLink>
                               </NavItem>
