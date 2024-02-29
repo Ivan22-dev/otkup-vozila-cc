@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Carousel, CarouselItem, CarouselControl } from "reactstrap";
+import { Container, Row, Col, Carousel, CarouselItem, CarouselControl, NavItem, NavLink, Nav } from "reactstrap";
 import WhatsappButton from "../../components/buttons/whatsappButton";
 import PhoneButton from "../../components/buttons/phoneButton";
 
@@ -12,6 +12,7 @@ import bg1 from "../../assets/images/bg1.jpg";
 import bg2 from "../../assets/images/bg2.jpg";
 import bg3 from "../../assets/images/bg3.jpg";
 import ViberButton from "../../components/buttons/viberButton";
+import ScrollspyNav from "../../components/Navbar/scrollSpy";
 
 const Section = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -88,6 +89,29 @@ const Section = () => {
                             <PhoneButton phoneNumber="385957483524" />
                             <ViberButton phoneNumber="385957483524" />
                           </div>
+                          <ScrollspyNav
+                            scrollTargetIds={["contact"]}
+                            scrollDuration="800"
+                            headerBackground="true"
+                            activeNavClass="active"
+                          >
+                            <Nav navbar className="ml-auto navbar-right" id="mySidenav">
+                              <NavItem key="3">
+                                <NavLink href={"#" + "contact"} className={item.navheading === "Home" ? "active" : ""}>
+                                  <h6
+                                    className="mt-4"
+                                    style={{
+                                      textDecoration: "underline",
+                                      textDecorationColor: "#fff",
+                                      textUnderlineOffset: "8px",
+                                    }}
+                                  >
+                                    <a style={{ color: "#979797" }}>Ili nas kontaktirajte nas putem obrasca</a>
+                                  </h6>
+                                </NavLink>
+                              </NavItem>
+                            </Nav>
+                          </ScrollspyNav>
                         </div>
                       </Col>
                     </Row>
