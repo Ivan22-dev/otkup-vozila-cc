@@ -7,8 +7,8 @@ const WhatsappButton = ({ phoneNumber }) => {
     <Button
       target="_blank"
       href={`https://wa.me/${phoneNumber}`}
-      style={{ backgroundColor: "#25D366" }}
-      className="btn  font-weight-bold mt-2 mr-2"
+      // style={{ backgroundColor: "#25D366" }}
+      className="whatsapp font-weight-bold mt-2 mr-2"
     >
       <BsWhatsapp className="mr-2" />
       Whatsapp

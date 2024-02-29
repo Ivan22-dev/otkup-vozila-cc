@@ -18,8 +18,7 @@ const ViberButton = ({ phoneNumber }) => {
         onClick={() => {}}
         target={isMobile() ? "" : `_blank`}
         href={isMobile() ? `viber://chat?number=+${phoneNumber}` : ``}
-        style={{ backgroundColor: "#59267C" }}
-        className="btn  font-weight-bold mt-2 mr-2"
+        className="viber font-weight-bold mt-2 mr-2"
       >
         <BsChatDots className="mr-2" />
         Viber
