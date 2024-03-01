@@ -1,5 +1,3 @@
-export const endpoint="https://www.carqueryapi.com/api/0.3/?callback=?&cmd=getMakes"
-
 export const carBrands=[
     {
        "make_id":"abarth",

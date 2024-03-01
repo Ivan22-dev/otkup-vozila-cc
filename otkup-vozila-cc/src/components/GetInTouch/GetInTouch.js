@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Container, Row, Col, Media, FormGroup } from "reactstrap";
 import { AvForm, AvField } from "availity-reactstrap-validation";
 
@@ -7,8 +7,9 @@ import SectionTitle from "../common/section-title";
 
 // Import Images
 import map from "../../assets/images/features/map.png";
-import { FirstSlide } from "../Modal/components/FirstSlide";
 import EngineType from "../Modal/components/EngineType";
+import { sendEmail } from "../utils/helpers";
+
 
 const GetInTouch = () => {
   return (
@@ -65,7 +66,7 @@ const GetInTouch = () => {
             <Col lg={7}>
               <div className="custom-form">
                 <div id="message"></div>
-                <AvForm name="contact-form" id="contact-form">
+                <AvForm onSubmit={(e)=>sendEmail(e)} name="contact-form" id="contact-form">
                   <Row>
                     <Col lg={12}>
                       <FormGroup className="mt-3">
@@ -212,7 +213,9 @@ const GetInTouch = () => {
                   </Row>
                   <Row>
                     <Col lg={12}>
-                      <EngineType />
+                      <FormGroup >
+                        <EngineType />
+                      </FormGroup>
                     </Col>
                   </Row>
 
@@ -229,7 +232,6 @@ const GetInTouch = () => {
                       </FormGroup>
                     </Col>
                   </Row>
-
                   <Row>
                     <Col lg={12}>
                       <div className="mt-3">
@@ -238,7 +240,7 @@ const GetInTouch = () => {
                           id="submit"
                           name="send"
                           className="submitBnt btn btn-primary"
-                          value="Send Message"
+                          value="Pošalji poruku"
                         />
                         <div id="simple-msg"></div>
                       </div>

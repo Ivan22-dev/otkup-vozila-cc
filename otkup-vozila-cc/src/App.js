@@ -11,14 +11,12 @@ import "./theme.scss";
 
 //Import Icon Css
 import "./assets/css/materialdesignicons.min.css";
-import FormDialog from "./components/Modal/components/Dialog";
 
 
 
 const App = () => {
   return (
     <React.Fragment>
-      <FormDialog/>
       <Router>
         <Switch>
           {routes.map((route, idx) => (
