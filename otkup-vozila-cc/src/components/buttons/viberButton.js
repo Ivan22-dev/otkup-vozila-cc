@@ -7,23 +7,25 @@ import { Tooltip } from "reactstrap";
 const ViberButton = ({ phoneNumber }) => {
   const [tooltipOpen, setTooltipOpen] = useState(false);
   const toggle = () => setTooltipOpen(!tooltipOpen);
-  function isMobile() {
-    const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-    return regex.test(navigator.userAgent);
-  }
+  // function isMobile() {
+  //   const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+  //   return regex.test(navigator.userAgent);
+  // }
+  let isMobile = window.navigator.userAgentData.mobile;
+
   return (
     <>
       <Button
         id="viber-btn"
         onClick={() => {}}
-        target={isMobile() ? "" : `_blank`}
-        href={isMobile() ? `viber://chat?number=+${phoneNumber}` : ``}
+        target={isMobile ? "" : `_blank`}
+        href={isMobile ? `viber://chat?number=+${phoneNumber}` : ``}
         className="viber font-weight-bold mt-2 mr-2"
       >
         <BsChatDots className="mr-2" />
         Viber
       </Button>
-      {isMobile && (
+      {!isMobile && (
         <Tooltip
           style={{ backgroundColor: "#CED4DA", color: "#000" }}
           isOpen={tooltipOpen}
