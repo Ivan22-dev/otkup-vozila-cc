@@ -8,6 +8,7 @@ import SectionTitle from "../common/section-title";
 // Import Images
 import map from "../../assets/images/features/map.png";
 import { sendEmail } from "../utils/helpers";
+import EngineType from "./EngineType";
 
 const GetInTouch = () => {
   return (
@@ -64,7 +65,7 @@ const GetInTouch = () => {
             <Col lg={7}>
               <div className="custom-form">
                 <div id="message"></div>
-                <AvForm onSubmit={(e) => sendEmail(e)} name="contact-form" id="contact-form">
+                <AvForm onSubmit={(e,errorMessage) => sendEmail(e,errorMessage)} name="contact-form" id="contact-form">
                   <Row>
                     <Col lg={12}>
                       <FormGroup className="mt-3">
@@ -100,7 +101,6 @@ const GetInTouch = () => {
                         />
                       </FormGroup>
                     </Col>
-
                     <Col lg={6}>
                       <FormGroup className="mt-3">
                         <AvField
@@ -211,7 +211,7 @@ const GetInTouch = () => {
                   </Row>
                   <Row>
                     <Col lg={12}>
-                      <FormGroup>{/* <EngineType /> */}</FormGroup>
+                      <FormGroup>{ <EngineType /> }</FormGroup>
                     </Col>
                   </Row>
 
