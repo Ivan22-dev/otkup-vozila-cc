@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Navbar, Nav, NavbarBrand, NavbarToggler, NavItem, NavLink, Container, Collapse } from "reactstrap";
 
 import ScrollspyNav from "./scrollSpy";
+import logolight from "../../assets/images/white-logo-transparent.png";
+import logodark from "../../assets/images/black-logo-transparent.png";
 
 const NavbarPage = (props) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -19,6 +21,13 @@ const NavbarPage = (props) => {
     <React.Fragment>
       <Navbar expand="lg" fixed="top" className={"navbar-custom sticky sticky-dark " + props.navClass}>
         <Container>
+          <NavbarBrand className="logo text-uppercase" href="/">
+            {props.imglight === true ? (
+              <img src={logolight} alt="Logo" height="50" />
+            ) : (
+              <img src={logodark} alt="Logo" height="50" />
+            )}
+          </NavbarBrand>
           <NavbarToggler onClick={toggle}>
             <i className="mdi mdi-menu"></i>
           </NavbarToggler>
