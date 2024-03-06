@@ -84,12 +84,7 @@ const Section = () => {
           slide={true}
           enableTouch={true}
         >
-          <CarouselIndicators
-            style={{ display: "none" }}
-            items={items}
-            activeIndex={activeIndex}
-            onClickHandler={goToIndex}
-          />
+          <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
           {items.map((item) => (
             <CarouselItem key={item.id} onExiting={onExiting} onExited={onExited}>
               <div
@@ -103,7 +98,7 @@ const Section = () => {
                 <div className="bg-overlay"></div>
                 <div className="home-center">
                   <div className="home-desc-center">
-                    <Container>
+                    <Container style={{ padding: "2rem" }}>
                       <Row className="justify-content-center">
                         <Col md="12" style={{ zIndex: "998" }}>
                           <div className="home-content text-white">

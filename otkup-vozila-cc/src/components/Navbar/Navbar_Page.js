@@ -28,30 +28,32 @@ const NavbarPage = (props) => {
               <img src={logodark} alt="Logo" height="50" />
             )}
           </NavbarBrand>
-          <NavbarToggler onClick={toggle} className={props.togglerClass}>
-            <i className="mdi mdi-menu"></i>
-          </NavbarToggler>
+          <div>
+            <NavbarToggler onClick={toggle} className={props.togglerClass}>
+              <i className="mdi mdi-menu"></i>
+            </NavbarToggler>
 
-          <Collapse id="navbarCollapse" isOpen={isOpenMenu} navbar>
-            <ScrollspyNav
-              scrollTargetIds={targetId}
-              scrollDuration="100"
-              headerBackground="true"
-              activeNavClass="active"
-              className="navbar-collapse"
-            >
-              <Nav navbar className="ml-auto navbar-right" id="mySidenav">
-                {props.navItems.map((item, key) => (
-                  <NavItem key={key}>
-                    <NavLink href={"#" + item.idnm} className={item.navheading === "Home" ? "active" : ""}>
-                      {" "}
-                      {item.navheading}
-                    </NavLink>
-                  </NavItem>
-                ))}
-              </Nav>
-            </ScrollspyNav>
-          </Collapse>
+            <Collapse id="navbarCollapse" isOpen={isOpenMenu} navbar>
+              <ScrollspyNav
+                scrollTargetIds={targetId}
+                scrollDuration="100"
+                headerBackground="true"
+                activeNavClass="active"
+                className="navbar-collapse"
+              >
+                <Nav navbar className="ml-auto navbar-right" id="mySidenav">
+                  {props.navItems.map((item, key) => (
+                    <NavItem key={key}>
+                      <NavLink href={"#" + item.idnm} className={item.navheading === "Home" ? "active" : ""}>
+                        {" "}
+                        {item.navheading}
+                      </NavLink>
+                    </NavItem>
+                  ))}
+                </Nav>
+              </ScrollspyNav>
+            </Collapse>
+          </div>
         </Container>
       </Navbar>
     </React.Fragment>

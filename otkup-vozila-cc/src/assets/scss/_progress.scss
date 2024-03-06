@@ -34,19 +34,19 @@
 }
 
 .progress-content {
-    position: relative;
-     height: 10rem;
-     text-wrap: balance;
-    &:before {
-        content: "";
-        position: absolute;
-        width: 28px;
-        height: 28px;
-        background-color: $white;
-        transform: rotate(45deg);
-        left: 0;
-        right: 0;
-        margin: 0px auto;
-        margin-top: -35px;
-    }
+  position: relative;
+  height: 10rem;
+  text-wrap: balance;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    background-color: $white;
+    transform: rotate(45deg);
+    left: 0;
+    right: 0;
+    margin: 0px auto;
+    margin-top: -35px;
+  }
 }

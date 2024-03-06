@@ -111,7 +111,7 @@ const ScrollspyNav = ({ scrollTargetIds, activeNavClass, scrollDuration, headerB
   }, [scrollTargetIds, activeNavClass, scrollDuration, headerBackground, homeDefaultLink, hashIdentifier]);
 
   return (
-    <div data-nav="list" className="navbar-collapse  justify-content-end">
+    <div data-nav="list" className="navbar-collapse  justify-content-end  d-flex">
       {children}
     </div>
   );

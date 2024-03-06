@@ -3,10 +3,9 @@
 //
 
 @media (min-width: 200px) and (max-width: 768px) {
-  .navbar-custom {
+  .navbar-custom.nav-sticky {
     margin-top: 0px;
     padding: 15px 0px !important;
-    // background-color: $white !important;
     box-shadow: 0 10px 33px rgba(0, 0, 0, 0.1);
     color: $white !important;
 
@@ -28,6 +27,21 @@
     }
   }
 
+  .navbar-custom {
+    .navbar-nav {
+      margin-top: 0px;
+      li {
+        &.active {
+          border-color: transparent;
+        }
+        a {
+          transition: all 0.4s;
+          color: $white !important;
+          margin: 0px;
+        }
+      }
+    }
+  }
   .navbar-custom .navbar-nav li.active a,
   .navbar-custom .navbar-nav li a:hover,
   .navbar-custom .navbar-nav li a:active {
@@ -37,6 +51,9 @@
   .navbar-toggler {
     border: none;
     color: $white;
+  }
+  .navbar-toggler:focus {
+    box-shadow: none;
   }
 
   .navbar-toggler-light {
@@ -78,7 +95,8 @@
 @media (max-width: 425px) {
   .carousel-control-next-icon,
   .carousel-control-prev-icon {
-    display: none;
+    // display: none;
+    background-color: "";
   }
 
   .carousel-indicators {
@@ -87,4 +105,8 @@
       height: 50px;
     }
   }
+}
+
+.navbar-collapse.show {
+  display: flex;
 }
