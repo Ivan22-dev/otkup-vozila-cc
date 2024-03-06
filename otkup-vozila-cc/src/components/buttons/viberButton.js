@@ -7,11 +7,7 @@ import { Tooltip } from "reactstrap";
 const ViberButton = ({ phoneNumber }) => {
   const [tooltipOpen, setTooltipOpen] = useState(false);
   const toggle = () => setTooltipOpen(!tooltipOpen);
-  // function isMobile() {
-  //   const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-  //   return regex.test(navigator.userAgent);
-  // }
-  let isMobile = window.navigator.userAgentData.mobile;
+  let isMobile=/Mobi/i.test(window.navigator.userAgent)
 
   return (
     <>
