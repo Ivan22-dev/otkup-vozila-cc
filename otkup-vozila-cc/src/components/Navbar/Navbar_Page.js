@@ -20,7 +20,7 @@ const NavbarPage = (props) => {
   return (
     <React.Fragment>
       <Navbar expand="lg" fixed="top" className={"navbar-custom sticky sticky-dark " + props.navClass}>
-        <Container>
+        <Container className="d-flex justify-content-between">
           <NavbarBrand className="logo text-uppercase" href="/">
             {props.imglight === true ? (
               <img src={logolight} alt="Logo" height="50" />
@@ -28,14 +28,14 @@ const NavbarPage = (props) => {
               <img src={logodark} alt="Logo" height="50" />
             )}
           </NavbarBrand>
-          <NavbarToggler onClick={toggle}>
+          <NavbarToggler onClick={toggle} className={props.togglerClass}>
             <i className="mdi mdi-menu"></i>
           </NavbarToggler>
 
           <Collapse id="navbarCollapse" isOpen={isOpenMenu} navbar>
             <ScrollspyNav
               scrollTargetIds={targetId}
-              scrollDuration="800"
+              scrollDuration="100"
               headerBackground="true"
               activeNavClass="active"
               className="navbar-collapse"

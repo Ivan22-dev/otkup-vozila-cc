@@ -5,7 +5,14 @@ const ProcessBox = ({ processes }) => {
   return (
     <>
       {processes.map((process, key) => (
-        <Col key={key} lg={3} xs={9} md={4} className={process.id !== "04" ? "progress-border" : ""}>
+        <Col
+          key={key}
+          lg={3}
+          xs={9}
+          md={4}
+          className={process.id !== "04" ? "progress-border" : ""}
+          style={{ zIndex: "10" }}
+        >
           <div className="text-center">
             <div className="progress-count text-white mt-4">
               <h3>{process.id}</h3>

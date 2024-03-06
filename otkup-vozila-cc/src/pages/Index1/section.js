@@ -84,7 +84,12 @@ const Section = () => {
           slide={true}
           enableTouch={true}
         >
-          <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
+          <CarouselIndicators
+            style={{ display: "none" }}
+            items={items}
+            activeIndex={activeIndex}
+            onClickHandler={goToIndex}
+          />
           {items.map((item) => (
             <CarouselItem key={item.id} onExiting={onExiting} onExited={onExited}>
               <div
@@ -100,7 +105,7 @@ const Section = () => {
                   <div className="home-desc-center">
                     <Container>
                       <Row className="justify-content-center">
-                        <Col md="12" style={{ zIndex: "1000" }}>
+                        <Col md="12" style={{ zIndex: "998" }}>
                           <div className="home-content text-white">
                             <h3 style={{ textDecoration: "underline", textDecorationColor: "#fff" }}>
                               <a href={`tel:385957483524`} className="mt-4 text-white">
@@ -116,7 +121,7 @@ const Section = () => {
                             </div>
                             <ScrollspyNav
                               scrollTargetIds={["contact"]}
-                              scrollDuration="800"
+                              // scrollDuration="800"
                               headerBackground="true"
                               activeNavClass="active"
                             >

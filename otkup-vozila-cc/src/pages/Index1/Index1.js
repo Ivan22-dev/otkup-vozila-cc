@@ -16,6 +16,7 @@ const Index1 = () => {
   ]);
   const [imglight, setImgLight] = useState(true);
   const [navClass, setNavClass] = useState("");
+  const [togglerClass, setTogglerClass] = useState("");
 
   useEffect(() => {
     const scrollNavigation = () => {
@@ -23,9 +24,11 @@ const Index1 = () => {
       if (scrollY > 0) {
         setNavClass("nav-sticky");
         setImgLight(false);
+        setTogglerClass("navbar-toggler-dark");
       } else {
         setNavClass("");
         setImgLight(true);
+        setTogglerClass("navbar-toggler-light");
       }
     };
 
@@ -48,7 +51,13 @@ const Index1 = () => {
     <React.Fragment>
       <Suspense fallback={<Loader />}>
         {/* Importing Navbar */}
-        <NavbarPage style={{ maxWidth: "100%" }} navItems={navItems} navClass={navClass} imglight={imglight} />
+        <NavbarPage
+          style={{ maxWidth: "100%" }}
+          navItems={navItems}
+          navClass={navClass}
+          imglight={imglight}
+          togglerClass={togglerClass}
+        />
 
         {/* Importing section */}
         <Section />

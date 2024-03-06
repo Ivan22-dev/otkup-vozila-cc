@@ -4,10 +4,8 @@ import { Container, Row, Col, Media, Form, Button } from "reactstrap";
 
 const Footer = () => {
   const socials = [
-    { icon: "mdi mdi-facebook", link: "#" },
-    { icon: "mdi mdi-linkedin", link: "#" },
-    { icon: "mdi mdi-pinterest", link: "#" },
-    { icon: "mdi mdi-twitter", link: "#" },
+    { icon: "mdi mdi-facebook", link: "https://www.facebook.com/profile.php?id=61557075301131" },
+    { icon: "mdi mdi-instagram", link: "https://www.instagram.com/otkupcc/" },
   ];
 
   return (
@@ -23,7 +21,7 @@ const Footer = () => {
                   <ul className="list-inline footer-social mb-0">
                     {socials.map((social, key) => (
                       <li className="list-inline-item" key={key}>
-                        <Link to={social.link} className="rounded">
+                        <Link to={social.link} className="rounded" target="_blank">
                           <i className={social.icon}></i>
                         </Link>
                       </li>

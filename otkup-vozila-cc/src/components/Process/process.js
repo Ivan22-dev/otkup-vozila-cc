@@ -26,11 +26,10 @@ const Process = () => {
           <Row className="pt-2 justify-content-center">
             <ProcessBox processes={processes} />
           </Row>
-          <Row className="mt-5 pt-2 justify-content-center">
-            <div style={{ zIndex: "990" }}>
+          <Row className="mt-5 pt-2">
+            <div style={{ zIndex: "990", display: "flex", justifyContent: "center" }}>
               <WhatsappButton phoneNumber="385957483524" />
               <PhoneButton phoneNumber="385957483524" />
-              <ViberButton phoneNumber="385957483524" />
             </div>
           </Row>
         </Container>
