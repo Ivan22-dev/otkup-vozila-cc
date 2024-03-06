@@ -1,6 +1,17 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Carousel, CarouselItem, CarouselControl, NavItem, NavLink, Nav } from "reactstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  NavItem,
+  NavLink,
+  Nav,
+  CarouselIndicators,
+} from "reactstrap";
 import WhatsappButton from "../../components/buttons/whatsappButton";
 import PhoneButton from "../../components/buttons/phoneButton";
 
@@ -46,6 +57,10 @@ const Section = () => {
   };
 
   const childRef = useRef();
+  const goToIndex = (newIndex) => {
+    if (animating) return;
+    setActiveIndex(newIndex);
+  };
 
   // useEffect(() => {
   //   var e1 = document.getElementsByClassName("carousel-item");
@@ -67,7 +82,9 @@ const Section = () => {
           interval={false}
           ride="carousel"
           slide={true}
+          enableTouch={true}
         >
+          <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
           {items.map((item) => (
             <CarouselItem key={item.id} onExiting={onExiting} onExited={onExited}>
               <div
@@ -83,7 +100,7 @@ const Section = () => {
                   <div className="home-desc-center">
                     <Container>
                       <Row className="justify-content-center">
-                        <Col md="12">
+                        <Col md="12" style={{ zIndex: "1000" }}>
                           <div className="home-content text-white">
                             <h3 style={{ textDecoration: "underline", textDecorationColor: "#fff" }}>
                               <a href={`tel:385957483524`} className="mt-4 text-white">
