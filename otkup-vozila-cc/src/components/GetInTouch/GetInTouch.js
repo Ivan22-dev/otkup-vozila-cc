@@ -23,7 +23,7 @@ const GetInTouch = () => {
                   <Media>
                     <i className="mdi mdi-map-marker text-primary h4"></i>
                     <Media body className=" ml-4">
-                      <a className="text-muted">
+                      <a target="_blank" href="https://maps.app.goo.gl/pNRzbfGSexiTHpTQ9" className="text-muted">
                         Put Duge Njive II 14, 21212 Kaštel Sućurac
                         <br />
                         Splitsko-dalmatinska, Hrvatska
@@ -55,7 +55,7 @@ const GetInTouch = () => {
                   <Media className="media mt-4">
                     <i className="mdi mdi-email text-primary h4"></i>
                     <Media body className="ml-4">
-                      <p className="text-muted">Email: otkupvozilacc@gmail.com</p>
+                    <a href="mailto:otkupvozilacc@gmail.com " className="text-muted">Email: otkupvozilacc@gmail.com</a>
                     </Media>
                   </Media>
                 </div>
