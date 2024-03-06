@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Row } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 
 // Import Section Title
 import SectionTitle from "../common/section-title";
@@ -44,8 +44,12 @@ const About = () => {
           </Row>
         </Container>
         <Row className="text-center justify-content-center overflow-hidden">
-          <WhatsappButton phoneNumber={"385957483524"} />
-          <PhoneButton phoneNumber={"385957483524"} />
+          <Col className="text-end">
+            <WhatsappButton className="col-2" phoneNumber={"385957483524"} />
+          </Col>
+          <Col className="text-start">
+            <PhoneButton phoneNumber={"385957483524"} />
+          </Col>
         </Row>
       </section>
 

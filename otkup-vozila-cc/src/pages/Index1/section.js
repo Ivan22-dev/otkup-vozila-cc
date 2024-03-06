@@ -1,6 +1,17 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Carousel, CarouselItem, CarouselControl, NavItem, NavLink, Nav } from "reactstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  NavItem,
+  NavLink,
+  Nav,
+  CarouselIndicators,
+} from "reactstrap";
 import WhatsappButton from "../../components/buttons/whatsappButton";
 import PhoneButton from "../../components/buttons/phoneButton";
 
@@ -46,15 +57,19 @@ const Section = () => {
   };
 
   const childRef = useRef();
+  const goToIndex = (newIndex) => {
+    if (animating) return;
+    setActiveIndex(newIndex);
+  };
 
-  useEffect(() => {
-    var e1 = document.getElementsByClassName("carousel-item");
-    for (var i = 0; i < 3; i++) {
-      if (i === 0) e1[i].style.backgroundImage = `url(${bg1})`;
-      if (i === 1) e1[i].style.backgroundImage = `url(${bg2})`;
-      if (i === 2) e1[i].style.backgroundImage = `url(${bg3})`;
-    }
-  });
+  // useEffect(() => {
+  //   var e1 = document.getElementsByClassName("carousel-item");
+  //   for (var i = 0; i < 3; i++) {
+  //     if (i === 0) e1[i].style.backgroundImage = `url(${bg1})`;
+  //     if (i === 1) e1[i].style.backgroundImage = `url(${bg2})`;
+  //     if (i === 2) e1[i].style.backgroundImage = `url(${bg3})`;
+  //   }
+  // });
 
   return (
     <React.Fragment>
@@ -67,55 +82,69 @@ const Section = () => {
           interval={false}
           ride="carousel"
           slide={true}
+          enableTouch={true}
         >
+          <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
           {items.map((item) => (
             <CarouselItem key={item.id} onExiting={onExiting} onExited={onExited}>
-              <div className="bg-overlay"></div>
-              <div className="home-center">
-                <div className="home-desc-center">
-                  <Container>
-                    <Row className="justify-content-center">
-                      <Col md="12">
-                        <div className="home-content text-white">
-                          <h3 style={{ textDecoration: "underline", textDecorationColor: "#fff" }}>
-                            <a href={`tel:385957483524`} className="mt-4 text-white">
-                              095 748 3524
-                            </a>
-                          </h3>
-                          <h1 className="title mt-4 text-white text-uppercase">{item.text}</h1>
-                          <h3 className="mt-4 text-white">{item.subtitle}</h3>
-                          <div className="pt-4 mt-1">
-                            <WhatsappButton phoneNumber="385957483524" />
-                            <PhoneButton phoneNumber="385957483524" />
-                            <ViberButton phoneNumber="385957483524" />
-                          </div>
-                          <ScrollspyNav
-                            scrollTargetIds={["contact"]}
-                            scrollDuration="800"
-                            headerBackground="true"
-                            activeNavClass="active"
-                          >
-                            <Nav navbar className="ml-auto navbar-right" id="mySidenav">
-                              <NavItem key="3">
-                                <NavLink href={"#" + "contact"} className={item.navheading === "Home" ? "active" : ""}>
-                                  <h6
-                                    className="mt-4"
-                                    style={{
-                                      textDecoration: "underline",
-                                      textDecorationColor: "#fff",
-                                      textUnderlineOffset: "8px",
-                                    }}
+              <div
+                style={{
+                  backgroundImage: `url(${item.image})`,
+                  backgroundSize: "cover",
+                  height: "100%",
+                  width: "100%",
+                }}
+              >
+                <div className="bg-overlay"></div>
+                <div className="home-center">
+                  <div className="home-desc-center">
+                    <Container>
+                      <Row className="justify-content-center">
+                        <Col md="12" style={{ zIndex: "1000" }}>
+                          <div className="home-content text-white">
+                            <h3 style={{ textDecoration: "underline", textDecorationColor: "#fff" }}>
+                              <a href={`tel:385957483524`} className="mt-4 text-white">
+                                095 748 3524
+                              </a>
+                            </h3>
+                            <h1 className="title mt-4 text-white text-uppercase">{item.text}</h1>
+                            <h3 className="mt-4 text-white">{item.subtitle}</h3>
+                            <div className="pt-4 mt-1">
+                              <WhatsappButton phoneNumber="385957483524" />
+                              <PhoneButton phoneNumber="385957483524" />
+                              <ViberButton phoneNumber="385957483524" />
+                            </div>
+                            <ScrollspyNav
+                              scrollTargetIds={["contact"]}
+                              scrollDuration="800"
+                              headerBackground="true"
+                              activeNavClass="active"
+                            >
+                              <Nav navbar className="ml-auto navbar-right" id="mySidenav">
+                                <NavItem key="3">
+                                  <NavLink
+                                    href={"#" + "contact"}
+                                    className={item.navheading === "Home" ? "active" : ""}
                                   >
-                                    <a style={{ color: "#979797" }}>Ili nas kontaktirajte putem obrasca</a>
-                                  </h6>
-                                </NavLink>
-                              </NavItem>
-                            </Nav>
-                          </ScrollspyNav>
-                        </div>
-                      </Col>
-                    </Row>
-                  </Container>
+                                    <h6
+                                      className="mt-4"
+                                      style={{
+                                        textDecoration: "underline",
+                                        textDecorationColor: "#fff",
+                                        textUnderlineOffset: "8px",
+                                      }}
+                                    >
+                                      <a style={{ color: "#979797" }}>Ili nas kontaktirajte putem obrasca</a>
+                                    </h6>
+                                  </NavLink>
+                                </NavItem>
+                              </Nav>
+                            </ScrollspyNav>
+                          </div>
+                        </Col>
+                      </Row>
+                    </Container>
+                  </div>
                 </div>
               </div>
             </CarouselItem>
