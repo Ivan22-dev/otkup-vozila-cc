@@ -114,32 +114,34 @@ const Section = () => {
                               <PhoneButton phoneNumber="385957483524" />
                               <ViberButton phoneNumber="385957483524" />
                             </div>
-                            <ScrollspyNav
-                              scrollTargetIds={["contact"]}
-                              // scrollDuration="800"
-                              headerBackground="true"
-                              activeNavClass="active"
-                            >
-                              <Nav navbar className="ml-auto navbar-right" id="mySidenav">
-                                <NavItem key="3">
-                                  <NavLink
-                                    href={"#" + "contact"}
-                                    className={item.navheading === "Home" ? "active" : ""}
-                                  >
-                                    <h6
-                                      className="mt-4"
-                                      style={{
-                                        textDecoration: "underline",
-                                        textDecorationColor: "#fff",
-                                        textUnderlineOffset: "8px",
-                                      }}
+                            <div className="form-contact">
+                              <ScrollspyNav
+                                scrollTargetIds={["contact"]}
+                                headerBackground="true"
+                                activeNavClass="active"
+                                style={{ justifyContent: "start" }}
+                              >
+                                <Nav navbar className="ml-auto navbar-right">
+                                  <NavItem key="3">
+                                    <NavLink
+                                      href={"#" + "contact"}
+                                      className={item.navheading === "Home" ? "active" : ""}
                                     >
-                                      <a style={{ color: "#979797" }}>Ili nas kontaktirajte putem obrasca</a>
-                                    </h6>
-                                  </NavLink>
-                                </NavItem>
-                              </Nav>
-                            </ScrollspyNav>
+                                      <h6
+                                        className="mt-4"
+                                        style={{
+                                          textDecoration: "underline",
+                                          textDecorationColor: "#fff",
+                                          textUnderlineOffset: "8px",
+                                        }}
+                                      >
+                                        <a style={{ color: "#979797" }}>Ili nas kontaktirajte putem obrasca</a>
+                                      </h6>
+                                    </NavLink>
+                                  </NavItem>
+                                </Nav>
+                              </ScrollspyNav>
+                            </div>
                           </div>
                         </Col>
                       </Row>
