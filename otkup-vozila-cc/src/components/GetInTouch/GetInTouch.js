@@ -15,22 +15,11 @@ const GetInTouch = () => {
     <React.Fragment>
       <section className="section" id="contact">
         <Container>
-          <SectionTitle title="Kako do nas" desc="" />
+          <SectionTitle title="Kontakt" desc="" />
           <Row className="mt-5 pt-2">
             <Col lg={5}>
               <div className="contact-info">
                 <div style={{ backgroundImage: `url(${map})`, backgroundRepeat: "no-repeat" }}>
-                  <Media>
-                    <i className="mdi mdi-map-marker text-primary h4"></i>
-                    <Media body className=" ml-4">
-                      <a target="_blank" href="https://maps.app.goo.gl/pNRzbfGSexiTHpTQ9" className="text-muted">
-                        Put Duge Njive II 14, 21212 Kaštel Sućurac
-                        <br />
-                        Splitsko-dalmatinska, Hrvatska
-                      </a>
-                    </Media>
-                  </Media>
-
                   <Media className="mt-4">
                     <i className="mdi mdi-phone text-primary h4"></i>
                     <Media body className="ml-4">
@@ -55,7 +44,9 @@ const GetInTouch = () => {
                   <Media className="media mt-4">
                     <i className="mdi mdi-email text-primary h4"></i>
                     <Media body className="ml-4">
-                    <a href="mailto:otkupvozilacc@gmail.com " className="text-muted">Email: otkupvozilacc@gmail.com</a>
+                      <a href="mailto:otkupvozilacc@gmail.com " className="text-muted">
+                        Email: otkupvozilacc@gmail.com
+                      </a>
                     </Media>
                   </Media>
                 </div>
@@ -65,8 +56,15 @@ const GetInTouch = () => {
             <Col lg={7}>
               <div className="custom-form">
                 <div id="message"></div>
-                <AvForm onSubmit={(e,errorMessage) => sendEmail(e,errorMessage)} name="contact-form" id="contact-form">
+                <AvForm
+                  onSubmit={(e, errorMessage) => sendEmail(e, errorMessage)}
+                  name="contact-form"
+                  id="contact-form"
+                >
                   <Row>
+                    <h6 className="mt-5 mb-0 text-center">Kontaktirajte nas putem obrasca</h6>
+                  </Row>
+                  <Row className="mt-0">
                     <Col lg={12}>
                       <FormGroup className="mt-3">
                         <AvField
@@ -211,7 +209,7 @@ const GetInTouch = () => {
                   </Row>
                   <Row>
                     <Col lg={12}>
-                      <FormGroup>{ <EngineType /> }</FormGroup>
+                      <FormGroup>{<EngineType />}</FormGroup>
                     </Col>
                   </Row>
 

@@ -12,13 +12,13 @@ const ViberButton = ({ phoneNumber }) => {
       <Button
         id="viber-btn"
         onClick={() => {}}
-        href={`viber://chat?number=+${phoneNumber}`}
+        href={`viber://contact?number=%2B${phoneNumber}`}
         className="viber font-weight-bold mt-2 mr-2"
       >
         <BsChatDots className="mr-2" />
         Viber
       </Button>
-      {
+      {/* {
         <Tooltip
           style={{ backgroundColor: "#CED4DA", color: "#000" }}
           isOpen={tooltipOpen}
@@ -26,9 +26,8 @@ const ViberButton = ({ phoneNumber }) => {
           toggle={toggle}
         >
           Ako ste na računalu, javite nam se putem vibera na +385 91 501 6957
-          {/* <img src={qrCodeViber} width="100%" height="100%" /> */}
         </Tooltip>
-      }
+      } */}
     </>
   );
 };

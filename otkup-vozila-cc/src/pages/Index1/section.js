@@ -32,7 +32,6 @@ const Section = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
-  const [imageId, setImageId] = useState(1);
   const carouselRef = useRef(null);
 
   const items = [
