@@ -22,18 +22,28 @@ import ModalSection from "../../components/common/ModalSection";
 import bg1 from "../../assets/images/bg1.jpg";
 import bg2 from "../../assets/images/bg2.jpg";
 import bg3 from "../../assets/images/bg3.jpg";
+import bg1Blur from "../../assets/images/bg1-blur.jpg";
+import bg2Blur from "../../assets/images/bg2-blur.jpg";
+import bg3Blur from "../../assets/images/bg3-blur.jpg";
 import ViberButton from "../../components/buttons/viberButton";
 import ScrollspyNav from "../../components/Navbar/scrollSpy";
 
 const Section = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const carouselRef = useRef(null);
 
   const items = [
-    { id: 1, image: bg1, text: "OTKUP RABLJENIH VOZILA", subtitle: "Otkup i isplata odmah" },
-    { id: 2, image: bg2, text: "NAJBOLJE CIJENE", subtitle: "Radimo na području cijele Hrvatske" },
-    { id: 3, image: bg3, text: "PROVJERENA SIGURNOST", subtitle: "Dostupni 0-24" },
+    { id: 1, image: bg1, text: "OTKUP RABLJENIH VOZILA", subtitle: "Otkup i isplata odmah", bluredImage: bg1Blur },
+    {
+      id: 2,
+      image: bg2,
+      text: "NAJBOLJE CIJENE",
+      subtitle: "Radimo na području cijele Hrvatske",
+      bluredImage: bg2Blur,
+    },
+    { id: 3, image: bg3, text: "PROVJERENA SIGURNOST", subtitle: "Dostupni 0-24", bluredImage: bg3Blur },
   ];
 
   const next = () => {
@@ -62,15 +72,6 @@ const Section = () => {
     setActiveIndex(newIndex);
   };
 
-  // useEffect(() => {
-  //   var e1 = document.getElementsByClassName("carousel-item");
-  //   for (var i = 0; i < 3; i++) {
-  //     if (i === 0) e1[i].style.backgroundImage = `url(${bg1})`;
-  //     if (i === 1) e1[i].style.backgroundImage = `url(${bg2})`;
-  //     if (i === 2) e1[i].style.backgroundImage = `url(${bg3})`;
-  //   }
-  // });
-
   return (
     <React.Fragment>
       <section className="home-section" id="home">
@@ -89,13 +90,25 @@ const Section = () => {
             <CarouselItem key={item.id} onExiting={onExiting} onExited={onExited}>
               <div
                 style={{
-                  backgroundImage: `url(${item.image})`,
                   backgroundSize: "cover",
                   height: "100%",
                   width: "100%",
                 }}
               >
-                <div className="c"></div>
+                <img
+                  style={{
+                    pointerEvents: "none",
+                    position: "absolute",
+                    width: "100%",
+                    zIndex: "-1",
+                  }}
+                  loading="lazy"
+                  src={imageLoaded ? item.image : item.bluredImage}
+                  onLoad={() => {
+                    setImageLoaded(true);
+                  }}
+                />
+                <div className="bg-overlay"></div>
                 <div className="home-center">
                   <div className="home-desc-center">
                     <Container style={{ padding: "2rem" }}>
@@ -130,7 +143,7 @@ const Section = () => {
                                           textUnderlineOffset: "8px",
                                         }}
                                       >
-                                        <a style={{ color: "#979797" }}>Ili nas kontaktirajte putem obrasca</a>
+                                        <a style={{ color: "#fff" }}>Ili nas kontaktirajte putem obrasca</a>
                                       </h6>
                                     </NavLink>
                                   </NavItem>
