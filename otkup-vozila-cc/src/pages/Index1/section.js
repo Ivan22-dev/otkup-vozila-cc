@@ -32,6 +32,7 @@ const Section = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageId, setImageId] = useState(1);
   const carouselRef = useRef(null);
 
   const items = [
@@ -47,17 +48,17 @@ const Section = () => {
   ];
 
   const next = () => {
-    setImageLoaded(false);
     if (animating) return;
     const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
     setActiveIndex(nextIndex);
+    // setImageLoaded(false);
   };
 
   const previous = () => {
-    setImageLoaded(false);
     if (animating) return;
     const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
     setActiveIndex(nextIndex);
+    // setImageLoaded(false);
   };
 
   const onExiting = () => {
@@ -70,9 +71,9 @@ const Section = () => {
 
   const childRef = useRef();
   const goToIndex = (newIndex) => {
-    setImageLoaded(false);
     if (animating) return;
     setActiveIndex(newIndex);
+    // setImageLoaded(false);
   };
 
   return (
@@ -111,7 +112,6 @@ const Section = () => {
                     height: "100%",
                     zIndex: "-1",
                   }}
-                  loading="lazy"
                   src={imageLoaded ? item.image : item.bluredImage}
                   onLoad={() => {
                     setImageLoaded(true);
