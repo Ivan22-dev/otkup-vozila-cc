@@ -95,7 +95,7 @@ const Section = () => {
                   width: "100%",
                 }}
               >
-                <div className="bg-overlay"></div>
+                <div className="c"></div>
                 <div className="home-center">
                   <div className="home-desc-center">
                     <Container style={{ padding: "2rem" }}>
