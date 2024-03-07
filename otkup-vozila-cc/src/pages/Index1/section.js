@@ -74,7 +74,6 @@ const Section = () => {
     if (animating) return;
     setActiveIndex(newIndex);
   };
-  console.log(imageLoaded);
 
   return (
     <React.Fragment>
@@ -94,16 +93,21 @@ const Section = () => {
             <CarouselItem key={item.id} onExiting={onExiting} onExited={onExited}>
               <div
                 style={{
+                  backgroundImage: `url(${item.image})`,
                   backgroundSize: "cover",
                   height: "100%",
                   width: "100%",
                 }}
               >
-                <img
+                {/* <img
                   style={{
                     pointerEvents: "none",
+                    backgroundSize: "cover",
+                    overflow: "hidden",
+
                     position: "absolute",
-                    width: "100%",
+                    // width: "100%",
+                    // height: "100%",
                     zIndex: "-1",
                   }}
                   loading="lazy"
@@ -111,7 +115,7 @@ const Section = () => {
                   onLoad={() => {
                     setImageLoaded(true);
                   }}
-                />
+                /> */}
                 <div className="bg-overlay"></div>
                 <div className="home-center">
                   <div className="home-desc-center">
