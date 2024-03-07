@@ -115,12 +115,7 @@ const Section = () => {
                               <ViberButton phoneNumber="385957483524" />
                             </div>
                             <div className="form-contact">
-                              <ScrollspyNav
-                                scrollTargetIds={["contact"]}
-                                headerBackground="true"
-                                activeNavClass="active"
-                                style={{ justifyContent: "start" }}
-                              >
+                              <ScrollspyNav scrollTargetIds={["contact"]}>
                                 <Nav navbar className="ml-auto navbar-right">
                                   <NavItem key="3">
                                     <NavLink
