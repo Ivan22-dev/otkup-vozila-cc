@@ -124,16 +124,16 @@ const Section = () => {
                         <Col md="12" style={{ zIndex: "998" }}>
                           <div className="home-content text-white">
                             <h3 style={{ textDecoration: "underline", textDecorationColor: "#fff" }}>
-                              <a href={`tel:385957483524`} className="mt-4 text-white">
-                                095 748 3524
+                              <a href={`tel:385915016957`} className="mt-4 text-white">
+                                091 501 6957
                               </a>
                             </h3>
                             <h1 className="title mt-4 text-white text-uppercase">{item.text}</h1>
                             <h3 className="mt-4 text-white">{item.subtitle}</h3>
                             <div className="pt-4 mt-1">
-                              <WhatsappButton phoneNumber="385957483524" />
-                              <PhoneButton phoneNumber="385957483524" />
-                              <ViberButton phoneNumber="385957483524" />
+                              <WhatsappButton phoneNumber="385915016957" />
+                              <PhoneButton phoneNumber="385915016957" />
+                              <ViberButton phoneNumber="385915016957" />
                             </div>
                             <div className="form-contact">
                               <ScrollspyNav scrollTargetIds={["contact"]}>

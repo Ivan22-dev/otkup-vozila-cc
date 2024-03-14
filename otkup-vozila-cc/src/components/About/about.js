@@ -45,10 +45,10 @@ const About = () => {
         </Container>
         <Row className="text-center justify-content-center overflow-hidden">
           <Col className="text-end">
-            <WhatsappButton className="col-2" phoneNumber={"385957483524"} />
+            <WhatsappButton className="col-2" phoneNumber={"385915016957"} />
           </Col>
           <Col className="text-start">
-            <PhoneButton phoneNumber={"385957483524"} />
+            <PhoneButton phoneNumber={"385915016957"} />
           </Col>
         </Row>
       </section>

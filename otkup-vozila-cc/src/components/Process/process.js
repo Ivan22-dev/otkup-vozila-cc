@@ -28,8 +28,8 @@ const Process = () => {
           </Row>
           <Row className="mt-5 pt-2">
             <div style={{ zIndex: "990", display: "flex", justifyContent: "center" }}>
-              <WhatsappButton phoneNumber="385957483524" />
-              <PhoneButton phoneNumber="385957483524" />
+              <WhatsappButton phoneNumber="385915016957" />
+              <PhoneButton phoneNumber="385915016957" />
             </div>
           </Row>
         </Container>

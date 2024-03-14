@@ -27,7 +27,7 @@ const GetInTouch = () => {
                         <p className="text-muted" style={{ margin: "0" }}>
                           Nazovi na:
                         </p>
-                        <a className="text-muted" href="tel:385957483524">
+                        <a className="text-muted" href="tel:385915016957">
                           091 501 6957
                         </a>
                       </p>
