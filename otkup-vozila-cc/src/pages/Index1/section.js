@@ -43,7 +43,13 @@ const Section = () => {
       subtitle: "Radimo na području cijele Hrvatske",
       bluredImage: bg2Blur,
     },
-    { id: 3, image: bg3, text: "PROVJERENA SIGURNOST", subtitle: "Dostupni 0-24", bluredImage: bg3Blur },
+    {
+      id: 3,
+      image: bg3,
+      text: "PROVJERENA SIGURNOST",
+      subtitle: "Dostupni 0-24 - Dolazak na lokaciju",
+      bluredImage: bg3Blur,
+    },
   ];
 
   const next = () => {
